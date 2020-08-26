@@ -23,4 +23,9 @@
     <ProjectReference Include="..\OurLibrary.DataAccess\OurLibrary.DataAccess.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Pages\Admin\" />
+  </ItemGroup>
+
 </Project>
