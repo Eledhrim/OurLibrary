@@ -1,0 +1,38 @@
+﻿@page
+@model OurLibrary.Pages.Admin.Category.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<style type="text/css">
+    /*#DT_load_wrapper label, #DT_load_info, #DT_load_paginate a {
+        color: #fff !important;
+    }*/
+</style>
+
+<div class="border container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-white">Category List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-page="Upsert" class="btn btn-primary"><i class="fas fa-plus">&nbsp;Create New</i></a>
+        </div>
+    </div>
+    <br /><br />
+    <table id="DT_load" class="table text-dark table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Parent Category</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/category.js"></script>
+}
