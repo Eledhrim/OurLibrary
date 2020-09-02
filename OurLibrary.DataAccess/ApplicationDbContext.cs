@@ -15,6 +15,7 @@ namespace OurLibrary.DataAccess
         }
 
         public DbSet<Category> Category { get; set; }
+        public DbSet<Author> Author { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

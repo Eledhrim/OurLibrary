@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OurLibrary.DataAccess.Repository.IRepository;
 
-namespace OurLibrary.Pages.Admin.Category
+namespace OurLibrary.Pages.Admin.Author
 {
     public class UpsertModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace OurLibrary.Pages.Admin.Category
         }
 
         [BindProperty]
-        public OurLibrary.Models.Category CategoryObj { get; set; }
+        public OurLibrary.Models.Author AuthorObj { get; set; }
         [BindProperty]
-        public IEnumerable<SelectListItem> CategoryList { get; set; }
+        public IEnumerable<SelectListItem> AuthorList { get; set; }
 
         public IActionResult OnGet(int? id)
         {
-            CategoryObj = new OurLibrary.Models.Category();
+            AuthorObj = new OurLibrary.Models.Author();
 
             if (id != null)
             {
-                CategoryObj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+                AuthorObj = _unitOfWork.Author.GetFirstOrDefault(u => u.Id == id);
 
-                if (CategoryObj == null)
+                if (AuthorObj == null)
                     return NotFound();
             }
 
-            CategoryList = _unitOfWork.Category.GetCategoryListForDropDown();
+            AuthorList = _unitOfWork.Author.GetAuthorListForDropDown();
 
             return Page();
         }
@@ -47,13 +47,13 @@ namespace OurLibrary.Pages.Admin.Category
                 return Page();
             }
 
-            if (CategoryObj.Id == 0)
+            if (AuthorObj.Id == 0)
             {
-                _unitOfWork.Category.Add(CategoryObj);
+                _unitOfWork.Author.Add(AuthorObj);
             }
             else
             {
-                _unitOfWork.Category.Update(CategoryObj);
+                _unitOfWork.Author.Update(AuthorObj);
             }
 
             _unitOfWork.Save();

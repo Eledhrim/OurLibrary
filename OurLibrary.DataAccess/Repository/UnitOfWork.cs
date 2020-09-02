@@ -14,9 +14,11 @@ namespace OurLibrary.DataAccess.Repository
             _db = db;
 
             Category = new CategoryRepository(_db);
+            Author = new AuthorRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
+        public IAuthorRepository Author { get; private set; }
 
         public void Dispose()
         {
