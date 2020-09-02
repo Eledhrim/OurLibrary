@@ -9,6 +9,8 @@ namespace OurLibrary.DataAccess.Repository.IRepository
         ICategoryRepository Category { get; }
 
         IAuthorRepository Author { get; }
+
+        IPublisherRepository Publisher { get; }
         void Save();
     }
 }
